@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './index.css'; // Changed from App.css to index.css
-import HomePage from './components/Page.jsx'; // Fixed path
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./components/page.jsx"; // Fixed path
+import "./index.css"; // Changed from App.css to index.css
 
 function App() {
   return (
