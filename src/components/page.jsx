@@ -1,6 +1,9 @@
-// src/components/pagejsx or Page.jsx
 import { useState } from "react";
 import {
+  FaBook,
+  FaCalendarAlt,
+  FaCheckCircle,
+  FaChevronDown,
   FaCode,
   FaDatabase,
   FaEnvelope,
@@ -44,7 +47,15 @@ const portfolioData = {
     { value: "3", label: "Companies Worked" },
   ],
 
-  navLinks: ["Home", "About", "Experience", "Projects", "Skills", "Contact"],
+  navLinks: [
+    "Home",
+    "About",
+    "Experience",
+    "Projects",
+    "Skills",
+    "Subjects",
+    "Contact",
+  ],
 
   education: [
     {
@@ -205,6 +216,80 @@ const {
 } = portfolioData;
 
 // ============================================================
+// SUBJECT DATA - ALL SUBJECTS (NO OPTIONAL)
+// ============================================================
+const subjectData = [
+  {
+    year: "Year 1 - Foundation",
+    icon: "📚",
+    description:
+      "In the first year, students learn the fundamentals of computer science and web technology, along with basic communication skills.",
+    subjects: [
+      "Computer Architecture & Operating System",
+      "Data Structures and Algorithms",
+      "Object-Oriented Programming with C++",
+      "Software Development Practices",
+      "Database Analysis and Design",
+      "Database Programming",
+      "Database Management Systems",
+      "Computer Networks",
+      "Network Administration",
+      "Internet Technologies",
+      "Web Programming",
+      "Enterprise Technologies and Architectures",
+      "Communication Skills - I",
+      "Communication Skills - II",
+      "Fundamentals of Mass Communication",
+    ],
+    color: "from-emerald-500 to-teal-500",
+  },
+  {
+    year: "Year 2 - Multimedia & Development",
+    icon: "🎨",
+    description:
+      "In the second year, multimedia (graphics, audio-video, animation) design components are introduced along with project management and entrepreneurship.",
+    subjects: [
+      "Programming in .NET",
+      "Web Technology & Applications",
+      "Digital Electronics",
+      "Art and Design",
+      "2D and 3D Graphics",
+      "Audio & Video Production Techniques",
+      "Digital Signal Processing Techniques & Image Processing",
+      "Audio and Video Editing Techniques",
+      "Multimedia Product Development",
+      "Animation Technology and Applications",
+      "Project Management Practices",
+      "Entrepreneurship Development and Management",
+      "Software Quality Assurance",
+      "Research Methods",
+      "Stress Management",
+      "Cosmology",
+      "Fundamentals of Energy Management",
+    ],
+    color: "from-purple-500 to-pink-500",
+  },
+  {
+    year: "Year 3 - Advanced & Industrial Training",
+    icon: "💼",
+    description:
+      "In the final year, industrial training is mandatory, along with advanced web and multimedia processing subjects and a major project.",
+    subjects: [
+      "Work Based / Industrial Training",
+      "Enterprise System Design",
+      "Web Interface Design & Application Software",
+      "Multimedia Data Processing",
+      "Professional Issues in Information Technology",
+      "Information Systems Management",
+      "Project (Multimedia & Web Development Project)",
+      "Photography",
+      "Occupational Health & Safety",
+    ],
+    color: "from-orange-500 to-red-500",
+  },
+];
+
+// ============================================================
 // COMPONENTS
 // ============================================================
 
@@ -251,7 +336,7 @@ const Navigation = ({ links }) => {
   );
 };
 
-// Hero Section - "Say Hello!" button removed
+// Hero Section
 const Hero = ({
   name,
   title,
@@ -297,17 +382,12 @@ const Hero = ({
               </span>
             </div>
             <div className="flex flex-wrap gap-4 mt-6">
-              {/* 👇 "Say Hello!" button REMOVED */}
-
-              {/* View My Work button */}
               <a
                 href="#projects"
                 className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-gray-700 px-8 py-3 rounded-full font-medium border border-gray-200 transition-all"
               >
                 View My Work
               </a>
-
-              {/* Download CV button */}
               <button
                 onClick={handleCVClick}
                 className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-medium transition-all shadow-lg shadow-green-600/25 hover:shadow-green-600/40"
@@ -621,6 +701,133 @@ const Projects = ({ projects }) => {
   );
 };
 
+// ============================================================
+// SUBJECTS SECTION
+// ============================================================
+const Subjects = () => {
+  const [openYear, setOpenYear] = useState(null);
+
+  const toggleYear = (index) => {
+    setOpenYear(openYear === index ? null : index);
+  };
+
+  // Calculate total subjects
+  const totalSubjects = subjectData.reduce(
+    (acc, year) => acc + year.subjects.length,
+    0,
+  );
+
+  return (
+    <section id="subjects" className="py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-blue-600 font-semibold text-sm tracking-wider uppercase">
+            Academic Subjects
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2">
+            📚 Course Curriculum
+          </h2>
+          <p className="text-gray-600 mt-3">
+            Complete list of all subjects covered in the Multimedia & Web
+            Development program
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          {subjectData.map((yearData, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-shadow"
+            >
+              <button
+                onClick={() => toggleYear(index)}
+                className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-300"
+              >
+                <div className="flex items-center gap-4">
+                  <div
+                    className={`text-3xl bg-gradient-to-r ${yearData.color} p-3 rounded-xl text-white`}
+                  >
+                    {yearData.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900">
+                      {yearData.year}
+                    </h3>
+                    <p className="text-gray-500 text-sm max-w-2xl line-clamp-2">
+                      {yearData.description}
+                    </p>
+                  </div>
+                </div>
+                <span
+                  className={`transform transition-transform duration-300 ${openYear === index ? "rotate-180" : ""}`}
+                >
+                  <FaChevronDown className="text-gray-400" />
+                </span>
+              </button>
+
+              {openYear === index && (
+                <div className="px-6 pb-6 animate-fadeIn">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {yearData.subjects.map((subject, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center gap-3 bg-gray-50 rounded-xl p-3 hover:bg-gray-100 transition-colors group"
+                      >
+                        <div
+                          className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${yearData.color}`}
+                        ></div>
+                        <span className="text-sm text-gray-700 group-hover:text-gray-900 transition-colors">
+                          {subject}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <span className="text-xs text-gray-500 flex items-center gap-1">
+                      <FaCheckCircle className="text-green-500" />
+                      {yearData.subjects.length} subjects completed
+                    </span>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+
+          {/* Summary Card */}
+          <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-6 mt-4 text-white">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <FaGraduationCap className="text-2xl" />
+                <div>
+                  <p className="text-sm text-white/80">Total Subjects</p>
+                  <p className="text-xl font-bold">{totalSubjects}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <FaCalendarAlt className="text-2xl" />
+                <div>
+                  <p className="text-sm text-white/80">Program Duration</p>
+                  <p className="text-xl font-bold">3 Years</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <FaBook className="text-2xl" />
+                <div>
+                  <p className="text-sm text-white/80">Subjects per Year</p>
+                  <p className="text-xl font-bold">
+                    {subjectData.map((y) => y.subjects.length).join(", ")}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // Contact Section
 const Contact = ({ socials, email, phone, location, references }) => {
   return (
@@ -771,6 +978,7 @@ function Page() {
       <Experience experiences={experiences} />
       <Projects projects={projects} />
       <Skills skills={skills} />
+      <Subjects />
       <Contact
         socials={{ github, linkedin }}
         email={email}
