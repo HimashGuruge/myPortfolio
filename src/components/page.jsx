@@ -7,6 +7,7 @@ import {
   FaCode,
   FaDatabase,
   FaEnvelope,
+  FaExternalLinkAlt,
   FaFileDownload,
   FaGithub,
   FaGraduationCap,
@@ -30,7 +31,7 @@ const portfolioData = {
     location: "Mt. Lavinia, Sri Lanka",
     email: "himezguruge@gmail.com",
     phone: "+94 75 7777343",
-    github: "github.com/HimashGuruge",
+    github: "github.com/HimashGuruge/HimashGuruge",
     linkedin: "linkedin.com/in/himiraguruge",
     profileImage: "/aaa.jpg",
     cvLink:
@@ -119,8 +120,9 @@ const portfolioData = {
       description:
         "University Final Project: Developed a scalable, production-ready Full-Stack E-Commerce platform featuring separate user portals and interactive admin management dashboards. Integrated AI Chatbot and Voice Recognition (Speech-to-Text) capabilities to enhance search functionality.",
       icon: "🛒",
-      frontendLink: "https://github.com/HimashGuruge/ecom_frontent",
-      backendLink: "https://github.com/HimashGuruge/ecom_backend",
+      frontendLink: "https://github.com/HimashGuruge/E-commerce-App",
+      backendLink: "https://github.com/HimashGuruge/E-commerce-App",
+      demoLink: "https://e-commerce-app-frontend-rouge.vercel.app/",
     },
     {
       id: "cida",
@@ -689,6 +691,14 @@ const Projects = ({ projects }) => {
                       className="inline-flex items-center gap-2 text-sm bg-purple-50 hover:bg-purple-100 text-purple-600 px-3 py-1.5 rounded-full transition-colors font-medium"
                     >
                       <FaGithub /> Backend
+                    </button>
+                  )}
+                  {project.demoLink && (
+                    <button
+                      onClick={(e) => handleGitHubClick(e, project.demoLink)}
+                      className="inline-flex items-center gap-2 text-sm bg-green-50 hover:bg-green-100 text-green-600 px-3 py-1.5 rounded-full transition-colors font-medium"
+                    >
+                      <FaExternalLinkAlt /> Live Demo
                     </button>
                   )}
                 </div>
