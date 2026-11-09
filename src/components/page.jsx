@@ -40,7 +40,7 @@ const portfolioData = {
 
   bio: "Multimedia & Web Technology undergraduate passionate about software engineering and full-stack development. I build responsive user interfaces, RESTful APIs, and database integrations.",
 
-  about: `I am a Multimedia & Web Technology undergraduate student at the University of Vocational Technology (UNIVOTEC), passionate about software engineering and full-stack development. I have strong skills in modern web development, problem-solving, and system design, with hands-on experience in building responsive user interfaces, RESTful APIs, and database integrations. I enjoy full-stack development and always seek to learn new technologies. My goal is to join a creative team and build modern, useful software solutions.`,
+  about: `I am Himira Guruge, a Multimedia & Web Technology undergraduate at the University of Vocational Technology (UNIVOTEC), focused on full-stack development. I build responsive user interfaces, RESTful APIs, and database-driven applications, with hands-on experience in React, Node.js, and MongoDB. I enjoy solving real-world problems, learning new technologies, and designing clean, maintainable systems. My goal is to join a creative team and build modern, useful software solutions.`,
 
   stats: [
     { value: "2+", label: "Years Experience" },
