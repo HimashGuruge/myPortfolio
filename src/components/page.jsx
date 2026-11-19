@@ -32,7 +32,7 @@ const portfolioData = {
     email: "himezguruge@gmail.com",
     phone: "+94 75 7777343",
     github: "github.com/HimashGuruge/HimashGuruge",
-    linkedin: "linkedin.com/in/himiraguruge",
+    linkedin: "linkedin.com/in/himash-guruge-0718b4440",
     profileImage: "/aaa.jpg",
     cvLink:
       "https://drive.google.com/file/d/1OrWWRUsq2JXVKmG9tTiAsGUW1UQ2Z_Gr/view?usp=sharing",
