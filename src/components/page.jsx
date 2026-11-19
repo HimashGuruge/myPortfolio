@@ -26,7 +26,7 @@ import { MdEmail } from "react-icons/md";
 // ============================================================
 const portfolioData = {
   personal: {
-    name: "Himira Guruge",
+    name: "Himash Guruge",
     title: "Full Stack Developer",
     location: "Mt. Lavinia, Sri Lanka",
     email: "himezguruge@gmail.com",
@@ -40,7 +40,7 @@ const portfolioData = {
 
   bio: "Multimedia & Web Technology undergraduate passionate about software engineering and full-stack development. I build responsive user interfaces, RESTful APIs, and database integrations.",
 
-  about: `I am Himira Guruge, a Multimedia & Web Technology undergraduate at the University of Vocational Technology (UNIVOTEC), focused on full-stack development. I build responsive user interfaces, RESTful APIs, and database-driven applications, with hands-on experience in React, Node.js, and MongoDB. I enjoy solving real-world problems, learning new technologies, and designing clean, maintainable systems. My goal is to join a creative team and build modern, useful software solutions.`,
+  about: `I am Himash Guruge, a Multimedia & Web Technology undergraduate at the University of Vocational Technology (UNIVOTEC), focused on full-stack development. I build responsive user interfaces, RESTful APIs, and database-driven applications, with hands-on experience in React, Node.js, and MongoDB. I enjoy solving real-world problems, learning new technologies, and designing clean, maintainable systems. My goal is to join a creative team and build modern, useful software solutions.`,
 
   stats: [
     { value: "2+", label: "Years Experience" },
